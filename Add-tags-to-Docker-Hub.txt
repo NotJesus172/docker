@@ -1,0 +1,23 @@
+To create a tag in a Docker Hub repository:
+
+    Use the "docker tag" command to assign a new tag to an existing image,
+    specifying your Docker Hub username and repository name,
+    followed by the desired tag name in the format:
+
+    "docker tag <source_image> <your_username>/<repository_name>:<tag_name>"
+
+    then, push the tagged image to Docker Hub using
+
+    "docker push <your_username>/<repository_name>:<tag_name>"
+
+Tagging an image:
+    The docker tag command creates a new alias for an existing image,
+    allowing you to reference the same image with different tags for versioning. 
+
+Format for tagging: 
+    - <source_image> = The existing image you want to tag.
+    - <your_username> = Your Docker Hub username.
+    - <repository_name> = The name of the repository you want to store the tag in.
+    - <tag_name> = The specific version identifier for your tag.
+
+docker tag <source_image> notjesus/stoneblock:1.0.37
