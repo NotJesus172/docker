@@ -20,4 +20,4 @@ Format for tagging:
     - <repository_name> = The name of the repository you want to store the tag in.
     - <tag_name> = The specific version identifier for your tag.
 
-docker tag <source_image> notjesus/stoneblock:1.0.37
+docker tag <source_image> notjesus/<repository_name>:<tag_name>
