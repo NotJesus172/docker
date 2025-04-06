@@ -1,0 +1,10 @@
+FROM haproxytech/haproxy-ubuntu:3.0
+
+RUN mkdir /certs
+RUN mkdir /certs/cloudflare
+RUN mkdir /certs/letsencrypt
+
+COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
+
+EXPOSE 80
+EXPOSE 443
