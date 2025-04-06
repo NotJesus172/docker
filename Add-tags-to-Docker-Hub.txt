@@ -20,4 +20,7 @@ Format for tagging:
     - <repository_name> = The name of the repository you want to store the tag in.
     - <tag_name> = The specific version identifier for your tag.
 
-docker tag <source_image> notjesus/<repository_name>:<tag_name>
+{
+docker tag <source_image> <your_username>/<repository_name>:<tag_name>
+docker push <your_username>/<repository_name>:<tag_name>
+}
