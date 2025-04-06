@@ -10,7 +10,7 @@ RUN rm -rf /var/lib/apt/lists/* && \
 
 WORKDIR /srv/minecraft
 
-RUN wget -O paper.jar https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds/497/downloads/paper-1.20.4-497.jar
+RUN wget -O paper.jar https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/196/downloads/paper-1.20.1-196.jar
 RUN echo "eula=true" > eula.txt
 
 EXPOSE 25565

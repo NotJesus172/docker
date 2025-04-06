@@ -1,0 +1,99 @@
+                For 1.8 - 1.11
+
+{
+FROM ubuntu:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y openjdk-8-jdk wget
+RUN rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/*
+
+WORKDIR /srv/minecraft
+
+RUN wget -O paper.jar "DOWNLOAD-LINK"
+RUN echo "eula=true" > eula.txt
+
+EXPOSE 25565
+
+ENTRYPOINT [ "java" ]
+
+CMD [ "-Xmx1024M", "-Xms1024M", "-jar", "paper.jar", "nogui" ]
+}
+
+                For 1.12 - 1.16.4
+
+{
+FROM ubuntu:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y openjdk-11-jdk wget
+RUN rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/*
+
+WORKDIR /srv/minecraft
+
+RUN wget -O paper.jar "DOWNLOAD-LINK"
+RUN echo "eula=true" > eula.txt
+
+EXPOSE 25565
+
+ENTRYPOINT [ "java" ]
+
+CMD [ "-Xmx1024M", "-Xms1024M", "-jar", "paper.jar", "nogui" ]
+}
+
+                For 1.16.5 - 1.20.4
+
+{
+FROM ubuntu:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y openjdk-17-jdk wget
+RUN rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/*
+
+WORKDIR /srv/minecraft
+
+RUN wget -O paper.jar "DOWNLOAD-LINK"
+RUN echo "eula=true" > eula.txt
+
+EXPOSE 25565
+
+ENTRYPOINT [ "java" ]
+
+CMD [ "-Xmx1024M", "-Xms1024M", "-jar", "paper.jar", "nogui" ]
+}
+
+                For 1.20.5 and ABOVE
+
+{
+FROM ubuntu:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y openjdk-21-jdk wget
+RUN rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/*
+
+WORKDIR /srv/minecraft
+
+RUN wget -O paper.jar "DOWNLOAD-LINK"
+RUN echo "eula=true" > eula.txt
+
+EXPOSE 25565
+
+ENTRYPOINT [ "java" ]
+
+CMD [ "-Xmx1024M", "-Xms1024M", "-jar", "paper.jar", "nogui" ]
+}

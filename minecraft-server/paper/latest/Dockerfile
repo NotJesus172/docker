@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV EULA= VERSION=latest
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -10,11 +11,13 @@ RUN rm -rf /var/lib/apt/lists/* && \
 
 WORKDIR /srv/minecraft
 
-RUN wget -O paper.jar https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/150/downloads/paper-1.20.6-150.jar
-RUN echo "eula=true" > eula.txt
+COPY eula.txt /srv/minecraft
+COPY install.sh /srv/minecraft
+
+RUN chmod +x install.sh
 
 EXPOSE 25565
 
-ENTRYPOINT [ "java" ]
+ENTRYPOINT [ "./install.sh" ]
 
-CMD [ "-Xmx1024M", "-Xms1024M", "-jar", "paper.jar", "nogui" ]
+CMD [ "java" "-Xmx1024", "-Xms1024", "-jar", "paper.jar", "nogui" ]

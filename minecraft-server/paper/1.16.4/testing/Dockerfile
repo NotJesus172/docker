@@ -4,13 +4,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y openjdk-17-jdk wget
+    apt-get install -y openjdk-11-jdk wget
 RUN rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
 WORKDIR /srv/minecraft
 
-RUN wget -O paper.jar https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds/497/downloads/paper-1.20.4-497.jar
+RUN wget -O paper.jar https://api.papermc.io/v2/projects/paper/versions/1.16.4/builds/416/downloads/paper-1.16.4-416.jar
 RUN echo "eula=true" > eula.txt
 
 EXPOSE 25565
