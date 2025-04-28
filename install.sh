@@ -70,7 +70,6 @@ else
   echo "If you would like to install portainer in the future, return to this directory and run the script for the version you would like to install."
   sleep 2
 fi
-
 #	Clear before ending:
 clear
 echo "Installation complete."
