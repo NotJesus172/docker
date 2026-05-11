@@ -4,7 +4,7 @@
 echo "Would you like to install docker? (y/n)"
 read dockerInstall
 
-if [[ $dockerInstall == "y" || $dockerInstall == "Y" ]]; then
+if [[ ${dockerInstall,,} == "y" ]]; then
   hostOS=$(hostnamectl | grep -i operating)
   read -ra distro <<< $hostOS
   case "${distro[2]}" in
@@ -41,7 +41,7 @@ fi
 clear
 echo "Would you like to install portainer? (y/n)"
 read portainerInstall
-if [[ $portainerInstall == "y" || $portainerInstall == "Y" ]]; then
+if [[ ${portainerInstall,,} == "y" ]]; then
   echo "Which version of portainer would you like to install:
   1 - Portainer Business Edition
   2 - Portainer Community Edition
@@ -51,15 +51,15 @@ if [[ $portainerInstall == "y" || $portainerInstall == "Y" ]]; then
   case $portainerVersion in
     1)
       # Install portainer ee docker container:
-      sudo ./portainer-ee.sh
+      ./portainer-ee
       ;;
     2)
       # Install portainer server docker container:
-      sudo ./portainer-ce.sh
+      ./portainer-ce
       ;;
     3)
       # Install portainer agent docker container:
-      sudo ./portainer-agent.sh
+      ./portainer-agent
       ;;
   esac
 else
