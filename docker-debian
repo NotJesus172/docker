@@ -8,7 +8,7 @@ sudo nala update && sudo nala upgrade -y
 # Purge old docker packages:
 sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc podman-docker containerd runc | cut -f1)
 #	Install docker engine:
-sudo nala install -y curl wget sl ca-certificates
+sudo nala install -y curl wget sl ca-certificates fastfetch
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
