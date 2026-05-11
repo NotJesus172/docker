@@ -1,2 +1,2 @@
 # docker
-Install Docker on Linux!
+Install Docker on RHEL!
