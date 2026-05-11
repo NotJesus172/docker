@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Sanity check:
 echo "Would you like to install docker? (y/n)"
