@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Purge any docker packages from RHEL install:
+sudo dnf -y remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine podman runc
+# Add repos and install basic utilities:
+sudo dnf -y install dnf-plugins-core epel-release
+sudo dnf -y install fastfetch git sl curl wget nano
+sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/rhel/docker-ce.repo
+# Install the Docker packages:
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# Enable docker service:
+sudo systemctl enable --now docker
+# Add user to docker group:
+sudo usermod -aG docker $USER
+# Reboot:
+sudo reboot now
+
+             
