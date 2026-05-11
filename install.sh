@@ -5,27 +5,26 @@ echo "Would you like to install docker? (y/n)"
 read dockerInstall
 
 if [[ $dockerInstall == "y" || $dockerInstall == "Y" ]]; then
-  echo "Which Linux distro are you currently running? (1-4):
-  1 - Debian
-  2 - Ubuntu
-  3 - Fedora
-  4 - Other"
-  read linuxDistro
-  echo "Very well."
-  case $linuxDistro in
-    1)
+  hostOS=$(hostnamectl | grep -i operating)
+  read -ra distro <<< $hostOS
+  case "${distro[2]}" in
+    Debian)
       # Debian:
-      sudo ./debian.sh
+      ./docekr-debian
       ;;
-    2)
+    Ubuntu)
       # Ubuntu:
-      sudo ./ubuntu.sh
+      ./docker-ubuntu
       ;;
-    3)
+    Fedora)
       # Fedora:
-      sudo ./fedora.sh
+      ./docker-fedora
       ;;
-    4)
+    Rocky|Red)
+      # RHEL:
+      ./docker-rhel
+      ;;
+    *)
       # Other:
       echo "Other Linux distros are not supported at this time. 
       Please try this script again while using a supported platform."
