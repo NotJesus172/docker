@@ -20,8 +20,8 @@ if [[ ${dockerInstall,,} == "y" ]]; then
       # Fedora:
       ./docker-fedora
       ;;
-    Rocky|Red)
-      # RHEL:
+    Red|Rocky)
+      # RHEL/Rocky:
       ./docker-rhel
       ;;
     *)
@@ -72,3 +72,13 @@ fi
 #	Clear before ending:
 clear
 echo "Installation complete."
+sleep 1
+echo 'Rebooting in 3 seconds'
+sleep 1
+echo 'Rebooting in 2 seconds'
+sleep 1
+echo 'Rebooting in 1 second'
+sleep 1
+echo 'Rebooting now'
+sleep 1
+sudo reboot now
