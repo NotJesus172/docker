@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #	Pull the portainer-ee:lts docker container image:
 echo "Pulling the portainer/portainer-ee:lts docker container."
