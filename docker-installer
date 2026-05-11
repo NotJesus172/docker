@@ -12,7 +12,8 @@ sudo dnf -y remove docker \
                   podman \
                   runc
 #	Add repos and install basic utilities:
-sudo dnf -y install dnf-plugins-core fastfetch git curl nano
+sudo dnf -y install dnf-plugins-core epel-release
+sudo dnf -y install fastfetch git curl nano
 sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/rhel/docker-ce.repo
 #	Install the Docker packages:
 sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
